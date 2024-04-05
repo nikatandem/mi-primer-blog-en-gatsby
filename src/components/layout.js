@@ -1,23 +1,39 @@
 import * as React from 'react'
-import { Link } from 'gatsby'
+import { Link, useStaticQuery, graphql } from 'gatsby'
 import { container, heading, navLinks, navLinkItem, navLinkText } from './layout.module.css'
 import { StaticImage } from 'gatsby-plugin-image'
 
 const Layout = ({ pageTitle, children }) => {
+    const data = useStaticQuery(graphql`query MyQuery {
+        site {
+          siteMetadata {
+            title
+            description
+            siteUrl
+            iconUrl
+          }
+        }
+      }
+      `)
     return (
         <div className={container}>
-<StaticImage
-       alt="Un patito feliz"
-       src="../images/icon.png" width={50}
-     />
-     <hr/>
+            <header>
+                <h1>{data.site.siteMetadata.title}</h1>
+                <h2>{data.site.siteMetadata.description}</h2>
+
+            </header>
+            <StaticImage
+                alt="Un patito feliz"
+                src="../images/icon.png" width={50}
+            />
+            <hr />
             <nav>
                 <ul className={navLinks}>
 
                     <li className={navLinkItem}>
 
 
-                        <Link to='/' className={navLinkText}>Home</Link></li>
+                        <Link to='/' className={navLinkText}>Inicio</Link></li>
                     <li className={navLinkItem}>
                         <Link to='/sobremi' className={navLinkText}>Sobre mí</Link></li>
                     <li className={navLinkItem}>
@@ -26,11 +42,11 @@ const Layout = ({ pageTitle, children }) => {
                         <a href='https://github.com/nikatandem'>Github</a></li>
                 </ul>
             </nav>
-            <hr/>
+            <hr />
             <main>
                 <h1 className={heading}>{pageTitle}</h1>
                 {children}
-                <hr/>
+                <hr />
                 <footer className='footer'> &copy; Nikatandem {new Date().getFullYear()}</footer>
                 {/* {new Date().getFullYear()} Para la fecha actualizada*/}
             </main>

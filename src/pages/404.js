@@ -1,6 +1,6 @@
 import * as React from "react"
 import { Link } from "gatsby"
-
+import Layout from '../components/layout'
 const pageStyles = {
   color: "#232129",
   padding: "96px",
@@ -25,10 +25,11 @@ const codeStyles = {
 
 const NotFoundPage = () => {
   return (
+    <Layout>
     <main style={pageStyles}>
-      <h1 style={headingStyles}>Page not found</h1>
+      <h1 style={headingStyles}>Página no encontrada</h1>
       <p style={paragraphStyles}>
-        Sorry 😔, we couldn’t find what you were looking for.
+        Lo sentimos 😔, no hemos podido encontrar lo que buscabas.
         <br />
         {process.env.NODE_ENV === "development" ? (
           <>
@@ -41,9 +42,10 @@ const NotFoundPage = () => {
         <Link to="/">Go home</Link>.
       </p>
     </main>
+  </Layout>
   )
 }
 
 export default NotFoundPage
 
-export const Head = () => <title>Not found</title>
+export const Head = () => <title>Recurso no encontrado</title>
