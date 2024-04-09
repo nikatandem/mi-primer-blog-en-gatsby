@@ -39,7 +39,9 @@ const Layout = ({ pageTitle, children }) => {
                     <li className={navLinkItem}>
                         <Link to='/blog' className={navLinkText}>Blog</Link></li>
                     <li className={navLinkText}>
-                        <a href='https://github.com/nikatandem'>Github</a></li>
+                    <Link to='/donde-estamos' className={navLinkText}>Dónde estamos </Link></li>
+                    
+                        
                 </ul>
             </nav>
             <hr />
@@ -47,7 +49,9 @@ const Layout = ({ pageTitle, children }) => {
                 <h1 className={heading}>{pageTitle}</h1>
                 {children}
                 <hr />
-                <footer className='footer'> &copy; Nikatandem {new Date().getFullYear()}</footer>
+                <footer className='footer'> &copy; Nikatandem {new Date().getFullYear()}
+                <a href='https://github.com/nikatandem'> Github</a>
+                </footer>
                 {/* {new Date().getFullYear()} Para la fecha actualizada*/}
             </main>
         </div>
